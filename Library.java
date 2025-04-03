@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 /* This is a stub for the Library class */
 public class Library extends Building{
   private Hashtable<String, Boolean> collection;
+  private boolean hasElevator;
 
   /**
    * 
@@ -10,10 +12,19 @@ public class Library extends Building{
    * @param address
    * @param nFloors
    */
-  public Library(String name, String address, int nFloors) {
+  public Library(String name, String address, int nFloors, boolean hasElevator) {
     super(name, address, nFloors);
     this.collection = new Hashtable<>();
+    this.hasElevator = hasElevator;
     System.out.println("You have built a library: 📖");
+  }
+
+  /**
+   * 
+   * @return t/f if the house has an elevator
+   */
+  public boolean hasElevator() {
+    return this.hasElevator;
   }
 
   /**
@@ -23,6 +34,18 @@ public class Library extends Building{
    */
   public void addTitle(String title) {
     collection.put(title, true);
+    System.out.println(title + " has been added to the collection!");
+  }
+
+  /**
+   * 
+   * @param titles
+   * Overloads original addTitle function, allows us to add multiple titles
+   */
+  public void addTitle(ArrayList<String> titles) {
+    for (String title: titles) {
+      addTitle(title);
+    }
   }
 
   /**
@@ -33,7 +56,19 @@ public class Library extends Building{
    */
   public String removeTitle(String title) {
     collection.remove(title);
+    System.out.println(title + " has been removed from the collection!");
     return title;
+  }
+
+  /**
+   * 
+   * @param titles
+   * Overloads removeTitle to remove an array of titles instead of just one
+   */
+  public void removeTitle(ArrayList<String> titles) {
+    for (String title: titles) {
+      removeTitle(title);
+    }
   }
 
   /**
@@ -88,9 +123,29 @@ public class Library extends Building{
   public void printCollection() {
     System.out.println("Books in collection: " + collection);
   }
+
+  /**
+   * Shows all options that the library can implement
+   */
+  public void showOptions() {
+    super.showOptions();
+    System.out.println(" + addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + printCollection()");
+  }
+
+  /**
+   * @param floorNum
+   * overrides original elevator function if the Library doesn't have one
+   */
+  public void goToFloor(int floorNum) {
+    if (!this.hasElevator) {
+      throw new UnsupportedOperationException("Sorry, this library does not have an elevator. Feature unsupported.");
+    } else {
+      super.goToFloor(floorNum);
+    }
+  }
   
   public static void main(String[] args) {
-    Library l = new Library("Neilson Library", "Smith College, Northampton MA", 4);
+    Library l = new Library("Neilson Library", "Smith College, Northampton MA", 4, false);
 
     l.addTitle("The Lorax by Dr. Seuss");
     l.addTitle("Matilda by Roald Dahl");
@@ -103,6 +158,11 @@ public class Library extends Building{
 
     l.removeTitle("Matilda by Roald Dahl");
     l.printCollection();
+
+    l.showOptions();
+
+    l.enter();
+    l.goToFloor(3);
   }
   
 }

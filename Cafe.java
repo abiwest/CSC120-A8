@@ -45,6 +45,25 @@ public class Cafe extends Building {
 
     /**
      * 
+     * @param size
+     * Creates a default black coffee if just given the size
+     */
+    public void sellCoffee(int size) {
+        sellCoffee(size, 0,0);
+    }
+
+    /**
+     * 
+     * @param size
+     * @param nCreams
+     * Creates default coffee with an equal amount of cream and sugar if the person doesn't specify sugar amount
+     */
+    public void sellCoffee(int size, int nCreams) {
+        sellCoffee(size, nCreams, nCreams);
+    }
+
+    /**
+     * 
      * @param nCoffeeOunces
      * @param nSugarPackets
      * @param nCreams
@@ -58,11 +77,26 @@ public class Cafe extends Building {
         this.nCups += nCups;
         System.out.println("Cafe has been restocked :)");
     }
+
+    /**
+     * Shows all options that the cafe can implement
+     */
+    public void showOptions() {
+        super.showOptions();
+        System.out.println(" + restock() \n + sellCoffee()");
+    }
+
+    public void goToFloor(int floorNum) {
+        throw new UnsupportedOperationException("Cafe's do not have elevators, sorry.");
+    }
     
     public static void main(String[] args) {
         Cafe c = new Cafe("Compass Cafe", "Neilson Library", 2, 100, 10, 10, 10);
         c.sellCoffee(20, 2, 2);
         c.restock(20, 20, 20, 20);
+
+        c.showOptions();
+
     }
     
 }
