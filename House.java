@@ -24,9 +24,9 @@ public class House extends Building{
 
   /**
    * 
+   * Creates default parameters for a house given name and address
    * @param name
    * @param address
-   * Creates default parameters for a house given name and address
    */
   public House(String name, String address) {
     this(name, address, 4, false, false);
@@ -58,8 +58,8 @@ public class House extends Building{
 
   /**
    * 
-   * @param s
    * Moves student into the house, throws exception if the student already lives there
+   * @param s
    */
   public void moveIn(Student s) {
     if (!residents.contains(s)) {
@@ -72,8 +72,8 @@ public class House extends Building{
 
   /**
    * 
-   * @param students
    * Moves an array of students into the house
+   * @param students
    */
   public void moveIn(ArrayList<Student> students) {
     for (Student s: students) {
@@ -114,8 +114,8 @@ public class House extends Building{
   }
 
   /**
-   * @param floorNum
    * overrides original elevator function if the Library doesn't have one
+   * @param floorNum
    */
   public void goToFloor(int floorNum) {
     if (!this.hasElevator) {
@@ -127,7 +127,7 @@ public class House extends Building{
 
   public static void main(String[] args) {
     House h = new House("Haynes House", "1 Mandelle Road", 3, true, false); 
-    Student a = new Student("Abi", 991123456);
+    Student a = new Student("Abi", "991123456", 2027);
 
     h.moveIn(a);
     h.moveOut(a);

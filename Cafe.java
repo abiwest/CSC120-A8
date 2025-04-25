@@ -26,10 +26,10 @@ public class Cafe extends Building {
 
     /**
      * 
+     * Makes the coffee by subtracting the correct number of ingredients from inventory. Throws exception if there's not enough inventory.
      * @param size
      * @param nSugarPackets
      * @param nCreams
-     * Makes the coffee by subtracting the correct number of ingredients from inventory. Throws exception if there's not enough inventory.
      */
     public void sellCoffee(int size, int nSugarPackets, int nCreams) {
         if (size < nCoffeeOunces && nSugarPackets < this.nSugarPackets && nCreams < this.nCreams && nCups > 0) {
@@ -45,8 +45,8 @@ public class Cafe extends Building {
 
     /**
      * 
-     * @param size
      * Creates a default black coffee if just given the size
+     * @param size
      */
     public void sellCoffee(int size) {
         sellCoffee(size, 0,0);
@@ -54,9 +54,9 @@ public class Cafe extends Building {
 
     /**
      * 
+     * Creates default coffee with an equal amount of cream and sugar if the person doesn't specify sugar amount
      * @param size
      * @param nCreams
-     * Creates default coffee with an equal amount of cream and sugar if the person doesn't specify sugar amount
      */
     public void sellCoffee(int size, int nCreams) {
         sellCoffee(size, nCreams, nCreams);
@@ -64,11 +64,11 @@ public class Cafe extends Building {
 
     /**
      * 
+     * Restocks cafe with the given number of items
      * @param nCoffeeOunces
      * @param nSugarPackets
      * @param nCreams
      * @param nCups
-     * Restocks cafe with the given number of items
      */
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         this.nCoffeeOunces += nCoffeeOunces;

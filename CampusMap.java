@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CampusMap {
@@ -66,8 +65,8 @@ public class CampusMap {
         myMap.addBuilding(new House("Gardiner House", "1 Paradise Rd, Northampton, MA 01063"));
         myMap.addBuilding(new House("Jordan House", "1 Paradise Rd, Northampton, MA 01063"));
 
-        Student abi = new Student("Abi", 991123);
-        Student abigail = new Student("Abigail", 991321);
+        Student abi = new Student("Abi", "991123", 2027);
+        Student abigail = new Student("Abigail", "991321", 2028);
         ArrayList<Student> newStudents = new ArrayList<>();
         newStudents.add(abigail);
         newStudents.add(abi);

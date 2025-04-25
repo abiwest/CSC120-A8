@@ -29,8 +29,8 @@ public class Library extends Building{
 
   /**
    * 
-   * @param title
    * Adds title to the collection
+   * @param title
    */
   public void addTitle(String title) {
     collection.put(title, true);
@@ -39,8 +39,8 @@ public class Library extends Building{
 
   /**
    * 
-   * @param titles
    * Overloads original addTitle function, allows us to add multiple titles
+   * @param titles
    */
   public void addTitle(ArrayList<String> titles) {
     for (String title: titles) {
@@ -50,8 +50,8 @@ public class Library extends Building{
 
   /**
    * 
-   * @param title
    * Removes title from collection
+   * @param title
    * @return title name
    */
   public String removeTitle(String title) {
@@ -62,8 +62,8 @@ public class Library extends Building{
 
   /**
    * 
-   * @param titles
    * Overloads removeTitle to remove an array of titles instead of just one
+   * @param titles
    */
   public void removeTitle(ArrayList<String> titles) {
     for (String title: titles) {
@@ -73,8 +73,8 @@ public class Library extends Building{
 
   /**
    * 
-   * @param title
    * Checks if the book exists in the collection & is available, then sets the availability to false
+   * @param title
    */
   public void checkOut(String title) {
     if (collection.containsKey(title) && collection.get(title)) { // Checking if the book exists AND is available
@@ -87,8 +87,8 @@ public class Library extends Building{
 
   /**
    * 
-   * @param title
    * Checks if the book is in the collection, then returns it by marking the availiabity as true
+   * @param title
    */
   public void returnBook(String title) {
     if (collection.containsKey(title)) {
@@ -133,8 +133,8 @@ public class Library extends Building{
   }
 
   /**
+   * Overrides original elevator function if the Library doesn't have one
    * @param floorNum
-   * overrides original elevator function if the Library doesn't have one
    */
   public void goToFloor(int floorNum) {
     if (!this.hasElevator) {
